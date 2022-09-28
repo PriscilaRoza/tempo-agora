@@ -11,8 +11,11 @@ const tempElement = document.querySelector("#temperature span");
 const descElement = document.querySelector("#description");
 const weatherIconElement = document.querySelector("#weather-icon");
 const countryElement = document.querySelector("#country");
-const humidityElement = document.querySelector("#umidity span");
+const humidityElement = document.querySelector("#humidity span");
 const windElement = document.querySelector("#wind span");
+const weatherContainer = document.querySelector("#weather-data");
+
+
 //funções
 //acessa api
 const getWeatherData = async(city) => {
@@ -39,8 +42,10 @@ const showWeatherData = async(city) => {
     countryElement.setAttribute('src', apiCountryURL + data.sys.country);
     humidityElement.innerHTML = `${data.main.humidity}%`;
     windElement.innerHTML = `${data.wind.speed}km/h`
+// aqui ele remove a classe hide quando clica no botão search
+    weatherContainer.classList.remove("hide");
 
-
+        
 
 }
 
